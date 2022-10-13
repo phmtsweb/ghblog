@@ -1,29 +1,29 @@
 import { formatDistance } from 'date-fns'
+import ptBR from 'date-fns/locale/pt-BR'
 import { useNavigate } from 'react-router-dom'
 import { CardContainer } from './styles'
 
 interface CardProps {
-  id: string
+  number: string
   title: string
   createdAt: string
   body: string
 }
 
-export function Card({ id, title, createdAt, body }: CardProps) {
+export function Card({ number, title, createdAt, body }: CardProps) {
   const navigate = useNavigate()
-  function linkTo(issueId: string) {
-    navigate(`/issues/${issueId}`)
+  function linkTo(issueNumber: string) {
+    navigate(`/issue/${issueNumber}`)
   }
 
   return (
-    <CardContainer onClick={() => linkTo(id)}>
+    <CardContainer onClick={() => linkTo(number)}>
       <header>
         <h4>{title}</h4>
         <span>
           {formatDistance(new Date(createdAt), new Date(), {
-            locale: {
-              code: 'pt-BR',
-            },
+            addSuffix: true,
+            locale: ptBR,
           })}
         </span>
       </header>

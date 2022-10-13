@@ -22,7 +22,8 @@ export const CardContainer = styled.div`
     span {
       font-size: ${(props) => props.theme.fontSizes.md};
       color: ${(props) => props.theme.colors.baseSpan};
-      min-width: 3.75rem;
+      min-width: 8rem;
+      text-align: right;
     }
   }
 
